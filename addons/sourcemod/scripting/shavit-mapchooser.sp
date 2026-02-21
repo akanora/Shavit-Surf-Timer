@@ -1966,6 +1966,12 @@ public int NominateMenuHandler(Menu menu, MenuAction action, int param1, int par
 		char mapname[PLATFORM_MAX_PATH];
 		menu.GetItem(param2, mapname, sizeof(mapname));
 
+		if(StrEqual(mapname, g_cMapName))
+		{
+			Shavit_PrintToChat(param1, "%t", "NominateCurrentMap", gS_ChatStrings.sVariable, gS_ChatStrings.sText, gS_ChatStrings.sWarning, gS_ChatStrings.sText);
+			return 0;
+		}
+
 		Nominate(param1, mapname);
 	}
 	if(action == MenuAction_DisplayItem)
